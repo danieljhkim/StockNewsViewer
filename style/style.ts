@@ -1,26 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export const styles1 = StyleSheet.create({
-  break: {
-    margin: 5,
-  },
-  cardBackground: {
-    backgroundColor: '#EFEFEF',
-    overflow: 'hidden',
-    width: '100%',
-  },
-  cardContainer: {
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderBottomWidth: 1,
-    borderColor: '#EFEFEF',
-    borderTopWidth: 1,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 16,
-    paddingLeft: 24,
-  },
   centeredView: {
     alignItems: 'center',
     paddingHorizontal: 40,
@@ -84,5 +64,9 @@ export const styles1 = StyleSheet.create({
   img: {
     width: 300,
     height: 200,
+  },
+  center: {
+  justifyContent: 'center',
+  alignItems: 'center',
   }
 });

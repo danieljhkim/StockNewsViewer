@@ -1,5 +1,4 @@
 export default class Article {
-  // public make:make
   constructor(
       public source: Source,
       public author: string,

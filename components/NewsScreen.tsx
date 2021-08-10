@@ -10,6 +10,7 @@ import {StackParamList } from '../navigation/types';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useContext } from 'react';
 import userContext from '../context/UserContext';
+import { Linking } from 'react-native';
 
 const Data: Article[] = require('../data/news.json');
 type ScreenNavigationProp = StackNavigationProp<StackParamList,'Article'>;
@@ -23,8 +24,9 @@ const NewsScreen: React.FC<unknown> = (): JSX.Element => {
     </>
   );
 
-  const viewArticle = (url:string) => {
-    setUrl(url)
+  const viewArticle = async (url:string) => {
+    setUrl(url);
+    // await Linking.openURL(url);
     navigation.navigate('Article');
   }
 
@@ -33,11 +35,13 @@ const NewsScreen: React.FC<unknown> = (): JSX.Element => {
       <TouchableOpacity onPress= {() => viewArticle(article.url)}>
         <Text style={styles1.title}>{article.title}</Text>
         <Text style={styles1.ctxt}>By {article.author}</Text>
-        <Image
-          style={styles1.img}
-          source={ { uri: article.urlToImage }}
-        />
-        <Text style={styles1.txt}>{article.description}</Text>
+        <View style={styles1.center}>
+          <Image
+            style={styles1.img}
+            source={ { uri: article.urlToImage }}
+          />
+        </View>
+        <Text style={styles1.txt}>{article.content}</Text>
         <Text style={styles1.rtxt}>{article.publishedAt}</Text>
       </TouchableOpacity>
     </View>
